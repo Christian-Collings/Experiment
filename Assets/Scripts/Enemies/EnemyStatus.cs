@@ -21,8 +21,16 @@ public class EnemyStatus : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+    }
+
+    private void OnCollissionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            TakeDamage(50);
+        }
     }
 }
