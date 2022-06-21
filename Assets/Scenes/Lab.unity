@@ -437,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455155022}
   m_LocalRotation: {x: 0.08715574, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 1.9038843, z: -1.7234138}
+  m_LocalPosition: {x: 0.43113407, y: 1.9038843, z: -1.7234138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1006,7 +1006,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784201, y: 1}
+    m_SensorSize: {x: 1.78125, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -1023,7 +1023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055756491}
   m_LocalRotation: {x: 0.08715574, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 1.9038843, z: -1.7234138}
+  m_LocalPosition: {x: 0.43113407, y: 1.9038843, z: -1.7234138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_VerticalAxis:
     Value: 10
     m_SpeedMode: 1
-    m_MaxSpeed: 1
+    m_MaxSpeed: 0.4
     m_AccelTime: 0.2
     m_DecelTime: 0.2
     m_InputAxisName: Mouse Y
@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_HorizontalAxis:
     Value: 0
     m_SpeedMode: 1
-    m_MaxSpeed: 2.5
+    m_MaxSpeed: 1
     m_AccelTime: 0.2
     m_DecelTime: 0.2
     m_InputAxisName: Mouse X
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_YDamping: 0
   m_ZDamping: 0
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.5
+  m_ScreenX: 0.31
   m_ScreenY: 0.5
   m_CameraDistance: 1.75
   m_DeadZoneWidth: 0
