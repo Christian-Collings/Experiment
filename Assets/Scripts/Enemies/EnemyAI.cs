@@ -81,6 +81,8 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+            playerSts.TakeDamage(20);
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
