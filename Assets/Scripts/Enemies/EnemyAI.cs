@@ -39,6 +39,9 @@ public class EnemyAI : MonoBehaviour
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
     }
 
+    /// <summary>
+    /// Puts the enemy into a state of patrolling towards a set point.
+    /// </summary>
     private void Patrolling()
     {
         if (!walkPointSet) SearchWalkPoint();
@@ -56,6 +59,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Puts the enemy into a state of searching around a set point.
+    /// </summary>
     private void SearchWalkPoint()
     {
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
@@ -69,11 +75,17 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Puts the enemy into a state of chasing after the player.
+    /// </summary>
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }
 
+    /// <summary>
+    /// Puts the enemy into a state of stopping to attack the player.
+    /// </summary>
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);

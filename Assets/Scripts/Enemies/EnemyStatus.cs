@@ -21,12 +21,16 @@ public class EnemyStatus : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Subtracts from the enemy's total health.
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
     }
 
-    private void OnCollissionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Bullet")
         {

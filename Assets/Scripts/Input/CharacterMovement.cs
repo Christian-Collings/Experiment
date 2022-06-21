@@ -57,20 +57,26 @@ public class CharacterMovement : MonoBehaviour
         shootAction.performed -= _ => ShootGun();
     }
 
+    /// <summary>
+    /// Shoots a bullet from the player's gun.
+    /// </summary>
     private void ShootGun()
     {
-        RaycastHit hit;
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
-        BulletController bulletController = bullet.GetComponent<BulletController>();
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+        if(aimCamera.Priority >= 10) // Checks if the camera is zoomed in, before firing.
         {
-            bulletController.target = hit.point;
-            bulletController.hit = true;
-        }
-        else
-        {
-            bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
-            bulletController.hit = true;
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            {
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+            }
+            else
+            {
+                bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                bulletController.hit = true;
+            }
         }
     }
 

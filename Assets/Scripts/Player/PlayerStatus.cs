@@ -16,6 +16,10 @@ public class PlayerStatus : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    /// <summary>
+    /// Subtracts from the player's total health.
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
