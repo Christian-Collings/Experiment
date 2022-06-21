@@ -34,6 +34,10 @@ public class CharacterMovement : MonoBehaviour
         Movement();
     }
 
+
+    /// <summary>
+    /// Moves the player, based on received Vector 2 input.
+    /// </summary>
     void Movement()
     {
         groundedPlayer = controller.isGrounded;
@@ -46,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
         {
             
         }
+        // Moves the player at a faster speed, if the sprint button is held.
         else if (sprintAction.ReadValue<float>() > .1f)
         {
             speed = playerSpeed * 4;
