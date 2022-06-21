@@ -8,4 +8,4 @@ A third-person shooter about an experimental, cybernetic skeleton that goes rogu
 ## Credits
 * Skeleton model - https://www.turbosquid.com/3d-models/body-skeleton-blend-free/659093
 * Laser gun model - https://www.turbosquid.com/3d-models/3d-futuristic-guns-1295041
-* Health icon - https://www.flaticon.com/free-icon/artificial-heart_1875951#
+* Health icon - https://www.flaticon.com/free-icon/artificial-heart_1875951
