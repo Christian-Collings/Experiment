@@ -363,8 +363,8 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
+    m_Style: 6
+    m_Time: 0.2
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -716,6 +716,7 @@ MonoBehaviour:
   playerSpeed: 2
   gravityValue: -9.81
   rotationSpeed: 5
+  aimCamera: {fileID: 1247695961}
 --- !u!114 &727743126
 MonoBehaviour:
   m_ObjectHideFlags: 0
