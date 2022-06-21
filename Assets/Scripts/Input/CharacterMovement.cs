@@ -23,8 +23,10 @@ public class CharacterMovement : MonoBehaviour
     private InputAction moveAction;
     private InputAction lookAction;
     private InputAction sprintAction;
+    private InputAction shootAction;
 
     public CinemachineVirtualCamera aimCamera;
+    public Animator animator;
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class CharacterMovement : MonoBehaviour
         moveAction = playerInput.actions["Movement"];
         lookAction = playerInput.actions["Look"];
         sprintAction = playerInput.actions["Sprint"];
+        shootAction = playerInput.actions["Shoot"];
     }
 
     void Update()
@@ -54,16 +57,22 @@ public class CharacterMovement : MonoBehaviour
 
         if (moveAction.ReadValue<Vector2>() == Vector2.zero)
         {
-            
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
         }
         // Moves the player at a faster speed, if the sprint button is held.
         else if (sprintAction.ReadValue<float>() > .1f)
         {
             speed = playerSpeed * 4;
+
+            animator.SetBool("isRunning", true);
         }
         else
         {
             speed = playerSpeed;
+
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isRunning", false);
         }
 
         Vector2 inputValues = moveAction.ReadValue<Vector2>();
