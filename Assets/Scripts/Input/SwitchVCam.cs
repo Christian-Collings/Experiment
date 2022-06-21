@@ -14,6 +14,8 @@ public class SwitchVCam : MonoBehaviour
     private CinemachineVirtualCamera virtualCamera;
     private InputAction aimAction;
 
+    public GameObject crosshair;
+
     private void Awake()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -35,10 +37,12 @@ public class SwitchVCam : MonoBehaviour
     private void StartAim()
     {
         virtualCamera.Priority += priorityBoostAmount;
+        crosshair.SetActive(true);
     }
 
     private void CancelAim()
     {
         virtualCamera.Priority -= priorityBoostAmount;
+        crosshair.SetActive(false);
     }
 }
