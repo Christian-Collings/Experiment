@@ -34,7 +34,6 @@ public class CharacterMovement : MonoBehaviour
         Movement();
     }
 
-
     /// <summary>
     /// Moves the player, based on received Vector 2 input.
     /// </summary>
