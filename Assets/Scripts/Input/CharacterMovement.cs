@@ -8,6 +8,8 @@ public class CharacterMovement : MonoBehaviour
     private float playerSpeed = 2.0f;
     [SerializeField]
     private float gravityValue = -9.81f;
+    [SerializeField]
+    private float rotationSpeed = 0.8f;
 
     private float speed;
 
@@ -15,6 +17,7 @@ public class CharacterMovement : MonoBehaviour
     private PlayerInput playerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
+    private Transform cameraTransform;
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -24,6 +27,7 @@ public class CharacterMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
+        cameraTransform = Camera.main.transform;
         moveAction = playerInput.actions["Movement"];
         lookAction = playerInput.actions["Look"];
         sprintAction = playerInput.actions["Sprint"];
@@ -61,7 +65,7 @@ public class CharacterMovement : MonoBehaviour
 
         Vector2 inputValues = moveAction.ReadValue<Vector2>();
         Vector3 move = new Vector3(inputValues.x, 0, inputValues.y);
-        move = Camera.main.transform.TransformDirection(move);
+        move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0.0f;
         controller.Move(move * Time.deltaTime * speed);
 
@@ -72,5 +76,9 @@ public class CharacterMovement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        float targetAngle = cameraTransform.eulerAngles.y;
+        Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
