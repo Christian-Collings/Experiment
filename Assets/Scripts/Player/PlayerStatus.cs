@@ -16,7 +16,17 @@ public class PlayerStatus : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    void TakeDamage(int damage)
+    void OnControllerColliderHit(ControllerColliderHit collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {   
+            TakeDamage(20);
+
+            Debug.Log("Poop");
+        }
+    }
+
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 

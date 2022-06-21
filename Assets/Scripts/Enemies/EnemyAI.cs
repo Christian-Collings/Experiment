@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
+    private PlayerStatus playerSts;
     public LayerMask whatIsGround, whatIsPlayer;
 
     public Vector3 walkPoint;
@@ -23,6 +24,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
+        playerSts = player.GetComponent<PlayerStatus>();
         agent = GetComponent<NavMeshAgent>();
     }
 
