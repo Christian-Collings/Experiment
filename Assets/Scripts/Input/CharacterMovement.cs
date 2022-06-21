@@ -11,6 +11,14 @@ public class CharacterMovement : MonoBehaviour
     private float gravityValue = -9.81f;
     [SerializeField]
     private float rotationSpeed = 0.8f;
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField]
+    private Transform barrelTransform;
+    [SerializeField]
+    private Transform bulletParent;
+    [SerializeField]
+    private float bulletHitMissDistance = 25f;
 
     private float speed;
 
@@ -28,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
     public CinemachineVirtualCamera aimCamera;
     public Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
@@ -37,6 +45,33 @@ public class CharacterMovement : MonoBehaviour
         lookAction = playerInput.actions["Look"];
         sprintAction = playerInput.actions["Sprint"];
         shootAction = playerInput.actions["Shoot"];
+    }
+
+    void OnEnable()
+    {
+        shootAction.performed += _ => ShootGun();
+    }
+
+    void OnDisable()
+    {
+        shootAction.performed -= _ => ShootGun();
+    }
+
+    private void ShootGun()
+    {
+        RaycastHit hit;
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+        BulletController bulletController = bullet.GetComponent<BulletController>();
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+        {
+            bulletController.target = hit.point;
+            bulletController.hit = true;
+        }
+        else
+        {
+            bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+            bulletController.hit = true;
+        }
     }
 
     void Update()

@@ -91,12 +91,6 @@ public class EnemyAI : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }    
+    } 
 }
 

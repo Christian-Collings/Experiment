@@ -258,6 +258,37 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &226600465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 226600466}
+  m_Layer: 0
+  m_Name: BulletParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &226600466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226600465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &388143039
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +679,10 @@ MonoBehaviour:
   playerSpeed: 2
   gravityValue: -9.81
   rotationSpeed: 5
+  bulletPrefab: {fileID: 715862372422287237, guid: fb9b4a5b4351fbe46b10512e3d24f3bd, type: 3}
+  barrelTransform: {fileID: 194768257}
+  bulletParent: {fileID: 226600466}
+  bulletHitMissDistance: 25
   aimCamera: {fileID: 1247695961}
   animator: {fileID: 645589970}
 --- !u!114 &645589968
@@ -1014,7 +1049,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  walkPoint: {x: 0, y: 0, z: 0}
+  walkPoint: {x: 0, y: 1, z: 5.63}
   walkPointRange: 5
   timeBetweenAttacks: 1
   sightRange: 5
